@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Hexo">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="Vim Use Tips, Hexo">
+    <meta name="description" content="vim插件ctags，cscope
+递归地修改一个文件夹内的所有文件12:arg**/*.py:argdo %s/\&amp;lt;animal\&amp;gt;/dog/ge | update
+
+解释：第一个命令将当前文件夹内的所有以.py结尾的文件加入">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Hexo</title>
+    <title>Vim Use Tips | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +337,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Vim Use Tips</h1>
                 </div>
             </div>
         </div>
@@ -361,9 +364,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux-Software/">
+                                <span class="chip bg-color">Linux Software</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -375,7 +382,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-05-22
+                    2024-05-23
                 </div>
                 
 
@@ -396,19 +403,98 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="vim插件"><a href="#vim插件" class="headerlink" title="vim插件"></a>vim插件</h2><p>ctags，cscope</p>
+<h2 id="递归地修改一个文件夹内的所有文件"><a href="#递归地修改一个文件夹内的所有文件" class="headerlink" title="递归地修改一个文件夹内的所有文件"></a>递归地修改一个文件夹内的所有文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:arg**/*.py</span><br><span class="line">:argdo %s/\&lt;animal\&gt;/dog/ge | update</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>解释：第一个命令将当前文件夹内的所有以.py结尾的文件加入缓冲区，第二个命令表示将animal替换为dog，g表示全局替换，e表示没有匹配时不报错，c表示每一个匹配都要确认。</p>
+<h2 id="16进制显示"><a href="#16进制显示" class="headerlink" title="16进制显示"></a>16进制显示</h2><p>:%!xxd -g 1 表示每1个字节为1组<br>:%!xxd -g 2 表示每2个字节为1组(默认)<br>:%!xxd -g 4 表示每4个字节为1组<br>:%!xxd -r 将vim恢复成原来的显示<br>man xxd可以获得xxd的帮助文件</p>
+<h2 id="换行符替换"><a href="#换行符替换" class="headerlink" title="换行符替换"></a>换行符替换</h2><p>显示windows下的换行符：<br>:e ++ff&#x3D;unix %</p>
+<p>全局替换：（其中^通过ctrl+V，M通过ctrl+M打出）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/^M//g</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>无法打出上述^M符号时，通过<code>set fileformat=unix</code>，设置文件保存格式，然后保存退出。</p>
+<h2 id="首行追加"><a href="#首行追加" class="headerlink" title="首行追加"></a>首行追加</h2><p>通过替换在行首添加内容</p>
+<p>下面的命令表示1行到20行首行前追加contain</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1,20s/^/contain/g</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="查找包含特定内容的行"><a href="#查找包含特定内容的行" class="headerlink" title="查找包含特定内容的行"></a>查找包含特定内容的行</h2><p>操作可以不填</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/目标内容/操作</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p> <strong><em>用例1</em></strong>  在当前文件夹下面所有.c文件中查找字符串 classA:<br><strong>:vimgrep &#x2F;classA&#x2F;gj .&#x2F;*.c</strong></p>
+<h2 id="函数参数顺序替换"><a href="#函数参数顺序替换" class="headerlink" title="函数参数顺序替换"></a>函数参数顺序替换</h2><p>替换目标：<br> p &#x3D; pool.create(“test-pool-1”, “1”, storage_media&#x3D;”0”, “2”, “0”, “0”)</p>
+<p>替换结果：<br> p &#x3D; pool.create(name&#x3D;”test-pool-1”, security_level&#x3D;”1”, storage_media&#x3D;”0”, rf&#x3D;”2”, ec_d&#x3D;”0”, ec_c&#x3D;”0”)</p>
+<p>命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">%</span><span class="language-bash">s/\vpool\.create\((.&#123;-<span class="number">1</span>,&#125;),\s?(.&#123;-<span class="number">1</span>,&#125;),\s?(.&#123;-<span class="number">1</span>,&#125;),\s?(.&#123;-<span class="number">1</span>,&#125;),\s?(.&#123;-<span class="number">1</span>,&#125;),\s?(.&#123;-<span class="number">1</span>,&#125;)\)/pool.create(name=\<span class="number">1</span>, security_level=\<span class="number">2</span>, storage_media=\<span class="number">3</span>, rf=\<span class="number">4</span>, ec_d=\<span class="number">5</span>, ec_c=\<span class="number">6</span>)/gc</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="换行符相关"><a href="#换行符相关" class="headerlink" title="换行符相关"></a>换行符相关</h2><p>修改换行符：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/\r//&#x27; /etc/profile.d/mdbs.sh</span><br></pre></td></tr></table></figure>
+
+<p>项目换行符统一替换，进入项目目录，运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name &quot;*&quot; | xargs dos2unix</span><br></pre></td></tr></table></figure>
+
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><p>读取二进制文件：<br>vim -b filename<br>转换为16进制显示：<br>:%!xxd<br>转回文本格式：<br>:%!xxd -r</p>
+<h2 id="窗口切换"><a href="#窗口切换" class="headerlink" title="窗口切换"></a>窗口切换</h2><p>Vim中分屏显示可以提高效率，也可以更直观的方便查看和编辑，下面讲解下如何实现分屏编辑。</p>
+<ul>
+<li><code>vim -o file1 file2</code>:水平分割窗口，同时打开file1和file2</li>
+<li><code>vim -O file1 file2</code>:垂直分割窗口，同时打开file1和file2</li>
+</ul>
+<h3 id="水平分割"><a href="#水平分割" class="headerlink" title="水平分割"></a>水平分割</h3><ul>
+<li>:split(:sp) – 把当前窗水平分割成两个窗口。<code>ctrl-w s</code>快捷键可以将当前窗口进行水平分割。</li>
+<li><code>:split filename</code> – 水平分割窗口，并在新窗口中显示另一个文件。</li>
+<li><code>:nsplit(:nsp)</code> – 水平分割出一个n行高的窗口。</li>
+<li><code>:[n]new</code> – 水平分割出一个n行高的窗口，并编辑一个新文件。 (<code>ctrl-w n</code>或 <code>ctrl-w ctrl-n</code>)</li>
+<li><code>ctrl+w f</code> –水平分割出一个窗口，并在新窗口打开名称为光标所在词的文件 。</li>
+<li><code>c-w c-^</code> – 水平分割一个窗口，打开刚才编辑的文件。</li>
+</ul>
+<h3 id="垂直分割"><a href="#垂直分割" class="headerlink" title="垂直分割"></a>垂直分割</h3><ul>
+<li><code>:vsplit(:vsp)</code> – 把当前窗口分割成水平分布的两个窗口。 (<code>Ctrl-w v</code>或<code>ctrl-w ctrl-v</code>)</li>
+<li><code>:[n]vne[w]</code> – 垂直分割出一个新窗口。</li>
+<li><code>:vertical</code> 水平分割的命令： 相应的垂直分割。</li>
+</ul>
+<h3 id="关闭子窗口"><a href="#关闭子窗口" class="headerlink" title="关闭子窗口"></a>关闭子窗口</h3><ul>
+<li><code>:qall</code> – 关闭所有窗口，退出vim。</li>
+<li><code>:wall</code> – 保存所有修改过的窗口。</li>
+<li><code>:only</code> – 只保留当前窗口，关闭其它窗口。(CTRL-W o)</li>
+<li><code>:close</code> – 关闭当前窗口，<code>Ctrl-w c</code>能实现同样的功能。 (象 <code>:q</code> <code>:x</code>同样工作 )</li>
+</ul>
+<h3 id="调整窗口大小"><a href="#调整窗口大小" class="headerlink" title="调整窗口大小"></a>调整窗口大小</h3><ul>
+<li><code>ctrl+w +</code> –当前窗口增高一行。也可以用n增高n行。</li>
+<li><code>ctrl+w -</code> –当前窗口减小一行。也可以用n减小n行。</li>
+<li><code>ctrl+w _</code> –当前窗口扩展到尽可能的大。也可以用n设定行数。</li>
+<li><code>:resize n</code> – 当前窗口n行高。</li>
+<li><code>ctrl+w =</code> – 所有窗口同样高度。</li>
+<li><code>n ctrl+w _</code> – 当前窗口的高度设定为n行。</li>
+<li><code>ctrl+w &lt;</code> –当前窗口减少一列。也可以用n减少n列。</li>
+<li><code>ctrl+w &gt;</code> –当前窗口增宽一列。也可以用n增宽n列。</li>
+<li><code>ctrl+w |</code> –当前窗口尽可能的宽。也可以用n设定列数。</li>
+</ul>
+<h3 id="切换和移动窗口"><a href="#切换和移动窗口" class="headerlink" title="切换和移动窗口"></a>切换和移动窗口</h3><p>如果支持鼠标，切换和调整子窗口的大小就简单了。</p>
+<ul>
+<li><code>ctrl+w ctrl+w</code>: 切换到下一个窗口。或者是<code>ctrl+w w</code>。</li>
+<li><code>ctrl+w p</code>: 切换到前一个窗口。</li>
+<li><code>ctrl+w h(l,j,k)</code>:切换到左（右，下，上）的窗口。</li>
+<li><code>ctrl+w t(b)</code>:切换到最上（下）面的窗口。  </li>
+<li><code>ctrl+w H(L,K,J)</code>: 将当前窗口移动到最左（右、上、下）面。</li>
+<li><code>ctrl+w r</code>：旋转窗口的位置。</li>
+<li><code>ctrl+w T</code>: 将当前的窗口移动到新的标签页上。</li>
+</ul>
+<h2 id="快速移动"><a href="#快速移动" class="headerlink" title="快速移动"></a>快速移动</h2><p>vim内置的移动<strong>快捷键</strong>如下：</p>
+<ul>
+<li><strong>h,j,k,l</strong> : j&#x2F;k按行上下移动，h&#x2F;l按字符左右移动。h&#x2F;l左右移动距离大的时候就纠结了，一次只能移动一个字符，适用于近距离移动。</li>
+<li><strong>b,w(e)</strong> : 按单词移动。按w或e向后移动一个单词，按b向前移动一个单词。相对于h&#x2F;l，这个效率高很多。</li>
+<li><strong>(,)</strong> : 按句子移动光标。(移动到句子的最前，)移动到下一个句子。这种方式在多个句子移动时比b&#x2F;w方式又高效很多。</li>
+<li><strong>^,$</strong> : 定位到行首和行尾。^定位到当前行首，$定位到当前行末。</li>
+<li><strong>fx,Fx</strong> : 按查找字符移动。fx向后移动到第一次出现x的位置，Fx则是向前。</li>
+<li><strong>,</strong> : 向上和向下滚屏。相对于之前的移动方案，这个比较霸气~</li>
+<li><strong>gg,G</strong> : 移动到文件开头和文件末尾，这个经常要用。</li>
+<li><strong>:n, nG</strong> : 跳转到文件第n行，这两个命令作用相同。</li>
+<li><strong>%</strong> : 跳转到匹配的括号。看看这个括号段从哪开始，到哪结束，这个真的很有用。</li>
+</ul>
+<h2 id="代码重构"><a href="#代码重构" class="headerlink" title="代码重构"></a>代码重构</h2><p>标记需要处理的文件，此处指定以.c和.h为后缀的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args /path/**/*.[hc]</span><br></pre></td></tr></table></figure>
+
+<p>执行替换处理，此处以total_small_mem_use_size替换成total_activate_mem_use_size为例子：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:argdo %s/total_small_mem_use_size/total_activate_mem_use_size/gec | update</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -435,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hetinto.github.io/2024/05/22/hello-world/">https://hetinto.github.io/2024/05/22/hello-world/</a>
+                    <a href="https://hetinto.github.io/2024/05/23/Vim-Use-Tips/">https://hetinto.github.io/2024/05/23/Vim-Use-Tips/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -472,7 +558,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Linux-Software/">
+                                    <span class="chip bg-color">Linux Software</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -553,13 +643,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2024/05/23/Perf-Performance/">
+                <a href="/2024/05/23/Python-Use-Tips/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Perf Performance">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python Use Tips">
                         
-                        <span class="card-title">Perf Performance</span>
+                        <span class="card-title">Python Use Tips</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -583,8 +673,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Performance/">
-                        <span class="chip bg-color">Performance</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -595,16 +685,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/05/22/hello-world/">
+                <a href="/2024/05/23/GDB-Use-Tips/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="GDB Use Tips">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">GDB Use Tips</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -615,7 +705,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-23
                             </span>
                         <span class="publish-author">
                             
@@ -625,7 +715,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Debug/">
+                        <span class="chip bg-color">Debug</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
