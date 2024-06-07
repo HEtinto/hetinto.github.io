@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="架构之道, Hexo">
-    <meta name="description" content="接口设计原则SRP(单一职责原则)该设计原则是基于康威定律(Conway’s Law)的一个推论——一个软件系统的最佳结构高度依赖于开发这个系统的组织的内部结构。这样，每个软件模块都有且只有一个需要被改变的理由。  
-OCP(开闭原则)该设">
+    <meta name="keywords" content="__attribute__((aligned())) SEGV, Hexo">
+    <meta name="description" content="问题简介使用calloc申请一片内存,取其中一部分出来给使用了对齐属性的结构体,导致在访问时出现SEGV错误.
+问题描述使用__attribute__((aligned()))对结构体进行对齐,但是申请的内存在堆上,导致gcc指针计算出现问">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ OCP(开闭原则)该设">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>架构之道 | Hexo</title>
+    <title>__attribute__((aligned())) SEGV | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -344,12 +344,12 @@ OCP(开闭原则)该设">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">架构之道</h1>
+                    <h1 class="description center-align post-title">__attribute__((aligned())) SEGV</h1>
                 </div>
             </div>
         </div>
@@ -385,7 +385,7 @@ OCP(开闭原则)该设">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-05-24
+                    2024-06-06
                 </div>
                 
 
@@ -406,11 +406,11 @@ OCP(开闭原则)该设">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="接口设计原则"><a href="#接口设计原则" class="headerlink" title="接口设计原则"></a>接口设计原则</h2><p><strong>SRP(单一职责原则)</strong><br>该设计原则是基于康威定律(Conway’s Law)的一个推论——一个软件系统的最佳结构高度依赖于开发这个系统的组织的内部结构。这样，每个软件模块都有且只有一个需要被改变的理由。  </p>
-<p><strong>OCP(开闭原则)</strong><br>该设计原则是由Bertrand Meyer在20世纪80年代大力推广的，其核心要素是：如果软件系统想要更容易被改变，那么其设计就必须允许新增代码来修改系统行为，而非只能靠修改原来的代码。</p>
-<p><strong>LSP(里氏替换原则)</strong><br>该设计原则是Barbara Liskov在1988年提出的一个著名的子类型定义。简单来说，这项原则的意思是如果想用可替换的组件来构建软件系统，那么这些组件就必须遵守同一个约定，以便让这些组件可以相互替换。</p>
-<p><strong>ISP(接口隔离原则)</strong><br>这项设计原则主要告诫软件设计师应该在设计中避免不必要的依赖。</p>
-<p><strong>DIP(依赖反转原则)</strong><br>该设计原则指出高层策略性的代码不应该依赖实现底层细节的代码，恰恰相反，那些实现底层细节的代码应该依赖高层策略性的代码。</p>
+                <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>使用calloc申请一片内存,取其中一部分出来给使用了对齐属性的结构体,导致在访问时出现SEGV错误.</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>使用__attribute__((aligned()))对结构体进行对齐,但是申请的内存在堆上,导致gcc指针计算出现问题.</p>
+<h2 id="问题相关邮件"><a href="#问题相关邮件" class="headerlink" title="问题相关邮件"></a>问题相关邮件</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://gcc.gnu.org/legacy-ml/gcc/2014-06/msg00308.html">https://gcc.gnu.org/legacy-ml/gcc/2014-06/msg00308.html</a></li>
+</ol>
 
                 
             </div>
@@ -437,7 +437,7 @@ OCP(开闭原则)该设">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hetinto.github.io/2024/05/24/%E6%9E%B6%E6%9E%84%E4%B9%8B%E9%81%93/">https://hetinto.github.io/2024/05/24/%E6%9E%B6%E6%9E%84%E4%B9%8B%E9%81%93/</a>
+                    <a href="https://hetinto.github.io/2024/06/06/attribute-aligned-SEGV/">https://hetinto.github.io/2024/06/06/attribute-aligned-SEGV/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,9 +551,48 @@ OCP(开闭原则)该设">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2024/06/06/attribute-aligned-SEGV/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="__attribute__((aligned())) SEGV">
+                        
+                        <span class="card-title">__attribute__((aligned())) SEGV</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Yu Jianming
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/05/29/VSCode%E9%85%8D%E7%BD%AEC-C-%E7%8E%AF%E5%A2%83/">
                     <div class="card-image">
@@ -571,45 +610,8 @@ OCP(开闭原则)该设">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-29
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yu Jianming
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/05/23/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="网站推荐">
-                        
-                        <span class="card-title">网站推荐</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-29
                             </span>
                         <span class="publish-author">
                             
