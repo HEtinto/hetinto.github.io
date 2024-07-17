@@ -408,6 +408,7 @@
             <div id="articleContent">
                 <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>使用calloc申请一片内存,取其中一部分出来给使用了对齐属性的结构体,导致在访问时出现SEGV错误.</p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>使用__attribute__((aligned()))对结构体进行对齐,但是申请的内存在堆上,导致gcc指针计算出现问题.</p>
+<p>可能的原因: 当使用编译属性对结构体进行修饰后,编译器使用vmovdqa对结构体进行优化,此优化要求内存地址按照16字节进行对齐,否则将引发一般性保护异常(内存访问错误).</p>
 <h2 id="问题相关邮件"><a href="#问题相关邮件" class="headerlink" title="问题相关邮件"></a>问题相关邮件</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://gcc.gnu.org/legacy-ml/gcc/2014-06/msg00308.html">https://gcc.gnu.org/legacy-ml/gcc/2014-06/msg00308.html</a></li>
 </ol>
